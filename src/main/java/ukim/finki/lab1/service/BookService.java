@@ -17,7 +17,7 @@ public interface BookService {
     Optional<Book> edit (Long id, BookDto bookDto);
     Book delete(Long id);
     Book update(Long id ,String name, Category category, Author author, Integer availableCopies);
-    Book markBook(Long id);
+    Optional<Book> markBook(Long id);
     List<Book> findAll();
     Page<Book> findAllWithPagination(Pageable pageable);
 }
