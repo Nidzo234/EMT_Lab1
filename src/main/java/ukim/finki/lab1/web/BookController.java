@@ -58,5 +58,12 @@ public class BookController {
         return this.bookService.findAllWithPagination(pageable).getContent();
     }
 
+    @GetMapping("/markBook/{id}")
+    public ResponseEntity<Book> markBookAsTaken(@PathVariable Long id) {
+        return this.bookService.markBook(id)
+                .map(book -> ResponseEntity.ok().body(book))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
+
 
 }

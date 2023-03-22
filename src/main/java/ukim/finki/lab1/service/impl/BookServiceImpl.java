@@ -72,10 +72,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book markBook(Long id) {
+    public Optional<Book> markBook(Long id) {
         Book b = bookRepository.findById(id).orElseThrow(InvalidIdException::new);
         b.setAvailableCopies(b.getAvailableCopies()-1);
-        return bookRepository.save(b);
+        return Optional.of(bookRepository.save(b));
 
 
     }
