@@ -5,6 +5,9 @@ import ukim.finki.lab1.model.Author;
 import ukim.finki.lab1.repository.AuthorRepository;
 import ukim.finki.lab1.service.AuthorService;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
@@ -16,5 +19,15 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author create(Author a) {
         return authorRepository.save(a);
+    }
+
+    @Override
+    public List<Author> findAll() {
+        return authorRepository.findAll();
+    }
+
+    @Override
+    public Optional<Author> findById(Long id) {
+        return authorRepository.findById(id);
     }
 }
