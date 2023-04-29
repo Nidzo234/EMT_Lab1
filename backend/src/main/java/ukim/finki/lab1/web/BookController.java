@@ -4,12 +4,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ukim.finki.lab1.model.Book;
+import ukim.finki.lab1.model.Category;
 import ukim.finki.lab1.model.dto.BookDto;
 import ukim.finki.lab1.service.BookService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/books")
 public class BookController {
 
@@ -65,5 +68,9 @@ public class BookController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
+    @GetMapping("/categories")
+    public List<Category> bookCategories() {
+        return Arrays.stream(Category.values()).toList();
+    }
 
 }

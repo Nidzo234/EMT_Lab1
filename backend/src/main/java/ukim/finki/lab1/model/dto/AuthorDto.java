@@ -1,6 +1,5 @@
 package ukim.finki.lab1.model.dto;
 
-import jakarta.persistence.ManyToOne;
 import ukim.finki.lab1.model.Country;
 
 public class AuthorDto {

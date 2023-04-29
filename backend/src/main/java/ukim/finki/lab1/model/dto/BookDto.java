@@ -8,13 +8,13 @@ import ukim.finki.lab1.model.Category;
 public class BookDto {
     private String name;
     Category category;
-    Author author;
+    Long author;
     private int availableCopies;
 
     public BookDto() {
     }
 
-    public BookDto(String name, Category category, Author author, int availableCopies) {
+    public BookDto(String name, Category category, Long author, int availableCopies) {
         this.name = name;
         this.category = category;
         this.author = author;

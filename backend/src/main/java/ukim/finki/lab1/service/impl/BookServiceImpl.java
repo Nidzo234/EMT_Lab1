@@ -38,20 +38,26 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Optional<Book> create(BookDto bookDto) {
-        Book b = new Book(bookDto.getName(), bookDto.getCategory(), bookDto.getAuthor(), bookDto.getAvailableCopies());
-        bookRepository.save(b);
-        return Optional.of(b);
+        Author author = this.authorRepository.findById(bookDto.getAuthor())
+                .orElseThrow(()-> new InvalidIdException());
+        Book book = new Book(bookDto.getName(), bookDto.getCategory(), author, bookDto.getAvailableCopies());
+
+        return Optional.of(bookRepository.save(book));
     }
 
     @Override
     public Optional<Book> edit(Long id, BookDto bookDto) {
-        Book b = bookRepository.findById(id).orElseThrow(InvalidIdException::new);
-        b.setCategory(bookDto.getCategory());
-        b.setName(bookDto.getName());
-        b.setAuthor(bookDto.getAuthor());
-        b.setAvailableCopies(bookDto.getAvailableCopies());
-        bookRepository.save(b);
-        return Optional.of(b);
+        Author author = this.authorRepository.findById(bookDto.getAuthor())
+                .orElseThrow(()-> new InvalidIdException());
+        Book book = this.bookRepository.findById(id)
+                .orElseThrow(() -> new InvalidIdException());
+
+        book.setName(bookDto.getName());
+        book.setCategory(bookDto.getCategory());
+        book.setAuthor(author);
+        book.setAvailableCopies(bookDto.getAvailableCopies());
+
+        return Optional.of(bookRepository.save(book));
     }
 
     @Override

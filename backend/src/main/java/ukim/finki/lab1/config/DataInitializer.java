@@ -1,10 +1,8 @@
 package ukim.finki.lab1.config;
 
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ukim.finki.lab1.model.Author;
-import ukim.finki.lab1.model.Book;
 import ukim.finki.lab1.model.Category;
 import ukim.finki.lab1.model.Country;
 import ukim.finki.lab1.service.AuthorService;
