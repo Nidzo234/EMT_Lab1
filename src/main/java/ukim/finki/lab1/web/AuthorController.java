@@ -12,6 +12,7 @@ import ukim.finki.lab1.service.AuthorService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://emtlab2.herokuapp.com")
 @RequestMapping("/api/authors")
 public class AuthorController {
 
