@@ -9,6 +9,7 @@ import ukim.finki.lab1.service.CountryService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://emtlab2.herokuapp.com")
 @RequestMapping("/api/country")
 public class CountryController {
     private final CountryService countryService;
