@@ -10,6 +10,7 @@ import ukim.finki.lab1.service.BookService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "https://emtlab2.herokuapp.com")
 @RequestMapping("/api/books")
 public class BookController {
 
